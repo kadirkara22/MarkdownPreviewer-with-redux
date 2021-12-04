@@ -71,7 +71,7 @@ header {
 .help-button:hover {
   box-shadow: 7px 7px lighten(#4a4a4a, 10%);
 }
-.help-button .active {
+.help-button.active {
   box-shadow: none;
 }
 @media (max-width: 1024px) {
@@ -94,7 +94,7 @@ header {
   }
 }
 @media (max-width: 1024px) {
-  .help-button .active {
+  .help-button.active {
     background-color: lighten(#ffdd67, 35%);
   }
 }

@@ -50,7 +50,15 @@ export const panelSlice = createSlice({
             state.textUser = action.payload
         },
         showHelp: (state, action) => {
+            if (state.isShowingHelp) {
+                state.textCurrent = state.textUser;
+                state.isShowingHelp = false
 
+            }
+            else {
+                state.textCurrent = state.textHelp;
+                state.isShowingHelp = true
+            }
         }
     }
 })

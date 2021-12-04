@@ -1,6 +1,8 @@
-import React from 'react'
-import { useDispatch, useSelector } from 'react-redux'
 import { marked } from 'marked';
+import React from 'react'
+
+import { useDispatch, useSelector } from 'react-redux'
+
 import { enterText } from '../redux/panelSlice';
 
 const Panel = () => {
@@ -8,10 +10,11 @@ const Panel = () => {
     const isShowingHelp = useSelector(state => state.panels.isShowingHelp)
     const dispatch = useDispatch()
 
-    const parsedText = marked(textCurrent, { sanitize: true });
-    const processedText = { __html: parsedText };
+    const parsedText = marked(textCurrent);
+
 
     return (
+
         <div className="text-panels">
             <textarea
                 value={textCurrent}
@@ -19,11 +22,12 @@ const Panel = () => {
                 className="text-panel-left"
                 readOnly={isShowingHelp}></textarea>
             <div
-                dangerouslySetInnerHTML={processedText}
+                dangerouslySetInnerHTML={{ __html: parsedText }}
                 className="text-panel-right">
 
             </div>
         </div>
+
     )
 }
 
